@@ -1,0 +1,29 @@
+[package]
+name = "rust-auth_backend"
+version = "0.1.0"
+authors = ["Erick Mwombeki <mwombekilubere@gmail.com>"]
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+path = "src/lib.rs"
+
+[[bin]]
+path = "src/main.rs"
+name = "backend"
+
+[dependencies]
+actix-web = "4.3.1"
+config = { version = "0.13.3", features = ["yaml"] }
+dotenv = "0.15.0"
+serde = "1.0.166"
+tokio = { version = "1.29.1", features = ["macros", "rt-multi-thread"] }
+tracing = "0.1.37"
+tracing-subscriber = { version = "0.3.17", features = [
+    "fmt",
+    "std",
+    "env-filter",
+    "registry",
+    'json',
+    'tracing-log',
+] }

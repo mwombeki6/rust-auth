@@ -9,5 +9,5 @@ redis:
 
 email:
   host: "smtp.gmail.com"
-  host_user: ""
-  host_user_password: ""  
+  host_user: "mwombekilubere@gmail.com"
+  host_user_password: "cyber@6666fuelcell"  

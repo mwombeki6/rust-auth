@@ -1,13 +1,14 @@
 #[tokio::main]
 async fn main() -> std::io::Result<()> {
     dotenv::dotenv().ok();
+    dotenv::from_filename(".env.development").ok();
 
-    let settings = rust_auth_backend::settings::get_settings().expect("Failed to read settings.");
+    let settings = backend::settings::get_settings().expect("Failed to read settings.");
 
-    let subscriber = rust_auth_backend::telemetry::get_subscriber(settings.clone().debug);
+    let subscriber = backend::telemetry::get_subscriber(settings.clone().debug);
     rust_auth_backend::telemetry::init_subscriber(subscriber);
 
-    let application = rust_auth_backend::startup::Application::build(settings, None).await?;
+    let application = backend::startup::Application::build(settings, None).await?;
 
     tracing::event!(target: "backend", tracing::Level::INFO, "Listening on http://127.0.0.1:{}/", application.port());
 

@@ -1,6 +1,6 @@
+mod auth;
 mod emails;
-//mod auth;
-//mod users;
+mod users;
 
 pub use auth::password::{hash, verify_password};
 pub use auth::tokens::{issue_confirmation_token_pasetors, verify_confirmation_token_pasetor};
